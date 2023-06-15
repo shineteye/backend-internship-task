@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.authtoken.models import Token
 from .models import User
 
 
@@ -18,5 +19,6 @@ class UserSerializer(serializers.ModelSerializer):
         )
         user.set_password(validated_data['password'])
         user.save()
-
+        # Ensuring that tokens are created when user is created in UserCreate view, so we update the UserSerializer.
+        Token.objects.create(user=user)
         return user

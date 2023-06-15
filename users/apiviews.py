@@ -5,7 +5,10 @@ from .permissions import IsOwnerOrReadonly, RegularUserPermission, UserManagerPe
 
 
 class CreateUserView(generics.CreateAPIView):
+    # using authentication_classes = () and permission_classes = () to exempt UserCreate from global authentication scheme.
     queryset = User.objects.all()
+    authentication_classes = ()
+    permission_classes = ()
     serializer_class = UserSerializer
 
 
