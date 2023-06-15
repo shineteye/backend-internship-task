@@ -1,7 +1,7 @@
 from rest_framework import permissions
 
 
-class IsOwner(permissions.BasePermission):
+class IsOwnerOrReadonly(permissions.BasePermission):
     """
     creating permissions for only the owner of an object to have access to it
     adding permissions also for anyone also to make requests
