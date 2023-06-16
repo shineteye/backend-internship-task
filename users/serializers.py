@@ -5,9 +5,13 @@ from .models import User
 
 class UserSerializer(serializers.ModelSerializer):
 
+    # calories = serializers.PrimaryKeyRelatedField(
+    #     many=True, queryset=Calories.objects.all())
+
     class Meta:
         model = User
-        fields = ['email', 'username', 'first_name', 'last_name', 'password']
+        fields = ['email', 'username', 'first_name',
+                  'last_name', 'password']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
