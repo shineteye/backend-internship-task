@@ -9,3 +9,8 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+
+class Profile(models.Model):
+    number_of_calories = models.OneToOneField(
+        to=User, on_delete=models.PROTECT)

@@ -3,7 +3,8 @@ from users.models import User
 
 
 class Entry(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(
+    #     User, on_delete=models.CASCADE, related_name='entries')
     date = models.DateField(auto_now_add=True)
     time = models.TimeField(auto_now_add=True)
     text = models.TextField()

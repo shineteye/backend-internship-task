@@ -11,4 +11,5 @@ urlpatterns = [
     # path('api/', include(router.urls)),
     # path('api/', include('api.urls')),
     path('api/users/', include('users.urls')),
+    path('api/entries/', include('entrys.urls')),
 ]
