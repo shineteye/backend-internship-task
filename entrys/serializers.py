@@ -12,6 +12,7 @@ class EntrySerializer(serializers.ModelSerializer):
                   'is_calories_less_than_expected']
 
     def create(self, validated_data):
+        # it is used to get the user from the request being made
         user = self.context['request'].user
         number_of_calories = validated_data['number_of_calories']
 
