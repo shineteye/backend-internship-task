@@ -9,7 +9,7 @@ router.register(r'users', UsersViewset, basename='users')
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('api/', include(router.urls)),
-    # path('api/', include('api.urls')),
+    path('api/', include('api.urls')),
     path('api/users/', include('users.urls')),
     path('api/entries/', include('entrys.urls')),
 ]
