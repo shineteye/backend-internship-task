@@ -12,4 +12,5 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('api/users/', include('users.urls')),
     path('api/entries/', include('entrys.urls')),
+    path('api/v2/', include('root.routers')),
 ]

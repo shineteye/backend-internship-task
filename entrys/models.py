@@ -1,10 +1,13 @@
 from django.db import models
-from users.models import User
+from django.conf import settings
+
+User = settings.AUTH_USER_MODEL  # auth.User
 
 
 class Entry(models.Model):
-    # user = models.ForeignKey(
-    #     User, on_delete=models.CASCADE, related_name='entries')
+    user = models.ForeignKey(
+        User,  default=1,  null=True, related_name='entries', on_delete=models.CASCADE,
+    )
     date = models.DateField(auto_now_add=True)
     time = models.TimeField(auto_now_add=True)
     text = models.TextField()

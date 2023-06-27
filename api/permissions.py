@@ -1,7 +1,4 @@
 from rest_framework import permissions
-from rest_framework import viewsets
-from .models import Entry
-from .serializers import EntrySerializer
 
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
