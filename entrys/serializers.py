@@ -3,10 +3,11 @@ from rest_framework.reverse import reverse
 from .models import Entry
 from users.serializers import UserSerializer
 from .validators import validate_text
+from api.serializers import UserPublicSerializer
 
 
 class EntrySerializer(serializers.ModelSerializer):
-    # user = UserSerializer()
+    owner = UserPublicSerializer(source='user', read_only=True)
     edit_url = serializers.SerializerMethodField(read_only=True)
     url = serializers.HyperlinkedIdentityField(
         view_name="entry-detail", lookup_field='pk')
@@ -21,10 +22,10 @@ class EntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
         fields = [
-            # 'user',
+            'owner',
+            'id',
             'edit_url',
             'url',
-            'id',
             'text',
             'number_of_calories',
             'is_calories_less_than_expected'
